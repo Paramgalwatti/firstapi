@@ -36,7 +36,7 @@ class ApiController extends Controller
     }
     public function update(Request $request, $id)
     {
-       
+       print_r($request);
         $validatedData = $request->validate([
             'name' => ['required', 'string'],
             'email' => [
