@@ -17,6 +17,13 @@ use App\Http\Controllers\ApiController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('get_user',[ApiController::class,'get_user']);
-Route::get('delete/{id}',[ApiController::class, 'delete']);
-Route::put('update/{id}', [ApiController::class, 'update']);
+
+Route::post('register',[ApiController::class,'register']);
+Route::post('login',[ApiController::class,'login']);
+
+Route::middleware('auth:sanctum')->group( function () {
+    Route::get('get_user',[ApiController::class,'get_user']);
+    Route::get('delete',[ApiController::class, 'delete']);
+    Route::post('update', [ApiController::class, 'update']);
+    
+});
